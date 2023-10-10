@@ -133,27 +133,28 @@ fun MainScreen() {
             Spacer(modifier = Modifier.height(114.dp - 31.dp - 50.dp)) // Вычитаем отступ сверху и высоту иконок
 
             // Ваш прямоугольник
-            RectangleImage()
+            RectangleWithText()
         }
     }
 }
 @Composable
-fun RectangleImage() {
+fun RectangleWithText() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
             .height(54.dp)
-            .padding(horizontal = 34.dp)
+            .padding(horizontal = 34.dp),
+        contentAlignment = Alignment.Center
     ) {
         Box(
             modifier = Modifier
                 .matchParentSize()
-                .padding(horizontal = 17.dp)  // Уменьшаем размер тени
+                .padding(horizontal = 4.dp)  // Уменьшаем размер тени
                 .background(
                     color = Color.Transparent,
                     shape = RoundedCornerShape(26.dp)
                 )
-                .shadow(elevation = 7.dp, shape = RoundedCornerShape(26.dp))
+                .shadow(elevation = 4.dp, shape = RoundedCornerShape(26.dp))
         )
 
         Image(
@@ -164,9 +165,21 @@ fun RectangleImage() {
                 .clip(RoundedCornerShape(26.dp)),
             contentScale = ContentScale.FillBounds
         )
+
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "GeoLampushka",
+                fontSize = 30.sp,
+                color = Color.Black,
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }
-
 
 
 
